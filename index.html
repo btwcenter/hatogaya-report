@@ -19,6 +19,6 @@
 <footer><span>はとがや保育園 求人掲載状況調査 ／ 2026年9月11日</span><span class="copyright">© <a href="https://www.way-holdings.co.jp/" target="_blank" rel="noopener noreferrer">WAYホールディングス株式会社</a></span></footer></main></div>
 <script>
 function revealHash(){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(!target)return;let el=target;while(el){if(el.tagName==='DETAILS')el.open=true;el=el.parentElement;}if(target.tagName==='ARTICLE')target.querySelector('details').open=true;requestAnimationFrame(()=>target.scrollIntoView());}
-document.querySelectorAll('details').forEach(el=>el.open=false);window.addEventListener('hashchange',revealHash);revealHash();
+if('scrollRestoration' in history)history.scrollRestoration='manual';function resetInitialView(){document.querySelectorAll('details').forEach(el=>el.open=false);if(location.hash)revealHash();else window.scrollTo(0,0);}window.addEventListener('pageshow',resetInitialView);window.addEventListener('hashchange',revealHash);resetInitialView();
 let printState=[];window.addEventListener('beforeprint',()=>{printState=[...document.querySelectorAll('details')].map(el=>[el,el.open]);printState.forEach(([el])=>el.open=true);});window.addEventListener('afterprint',()=>{printState.forEach(([el,open])=>el.open=open);printState=[];});
 </script></body></html>
